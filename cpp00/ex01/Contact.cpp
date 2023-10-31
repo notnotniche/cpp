@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:55:20 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/10/31 17:34:55 by nklingsh         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:45:48 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ void Contact::SetPhonenumber()
 		}
 	}
 	if (phonenumber[i - 1] >= '0' && phonenumber[i - 1] <= '9')
-	{
 		x = 1;
-	}
 	}
 }
 
