@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 13:54:43 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:20 by nklingsh         ###   ########.fr       */
+/*   Created: 2023/10/31 14:30:01 by nklingsh          #+#    #+#             */
+/*   Updated: 2023/10/31 17:16:47 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Contact.hpp"
 
-# include <iostream>
-# include <sstream>
-# include "Contact.hpp"
-
-class Phonebook
+int main()
 {
-	public : 
-		Phonebook(int size): maxsize(size), currentsize(0)
-		{
-			contacts = new Contact[size];
-		};
-		~Phonebook()
-		{
-			delete[] contacts;
-		};
-		void AddContact();
-	private :
-		Contact *contacts;
-		int		maxsize = 8;
-		int		currentsize;
-		
+	Contact Nicolas;
 	
-	
-};
-#endif
+	Nicolas.SetAllContact();
+	Nicolas.Printvalue();
+}

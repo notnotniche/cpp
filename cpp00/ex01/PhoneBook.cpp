@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.hpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 13:54:43 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/10/31 16:29:20 by nklingsh         ###   ########.fr       */
+/*   Created: 2023/10/31 16:11:29 by nklingsh          #+#    #+#             */
+/*   Updated: 2023/10/31 17:37:22 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#include "Phonebook.hpp"
 
-# include <iostream>
-# include <sstream>
-# include "Contact.hpp"
-
-class Phonebook
+void Phonebook::AddContact()
 {
-	public : 
-		Phonebook(int size): maxsize(size), currentsize(0)
-		{
-			contacts = new Contact[size];
-		};
-		~Phonebook()
-		{
-			delete[] contacts;
-		};
-		void AddContact();
-	private :
-		Contact *contacts;
-		int		maxsize = 8;
-		int		currentsize;
-		
-	
-	
-};
-#endif
+	if (currentsize < maxsize)
+	{
+		contacts[currentsize] = Contact();
+		currentsize++;
+	}
+	else
+	{
+		std::cout << "PhoneBook is full. Cannot add more contacts.";
+	}
+}

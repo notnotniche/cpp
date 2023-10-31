@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:43:33 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/10/28 16:26:46 by nklingsh         ###   ########.fr       */
+/*   Updated: 2023/10/31 17:13:31 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CONTACT_HPP
 
 #include <iostream>
+#include <string>
 
 class Contact
 {
@@ -26,11 +27,12 @@ class Contact
 		void SetContactSurname();
 		void SetPhonenumber();
 		void SetDarkestSecret();
+		void SetAllContact();
 	private:
 		std::string firstname;
 		std::string lastname;
 		std::string surname;
-		int			phonenumber;
+		std::string	phonenumber;
 		std::string darkestsecret;
 };
 
