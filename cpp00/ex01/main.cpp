@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:30:01 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/10/31 18:17:15 by nklingsh         ###   ########.fr       */
+/*   Updated: 2023/11/03 14:58:24 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,19 @@
 int main()
 {
 	std::string command;
-	Phonebook myPhoneBook(8);
+	Phonebook myPhoneBook;
 	myPhoneBook.Init();
 	while(1)
 	{
-		std::getline(std::cin, command);
+		if (std::getline(std::cin, command).fail() == true)
+			break;
 		if (command == "ADD")
 			myPhoneBook.AddContact();
-		if (command == "EXIT")
+		else if (command == "EXIT")
 			break;
-			
+		else if (command == "SEARCH")
+			myPhoneBook.Search();
+		else 
+			std::cout << "WRONG INPUT TRY AGAIN !!" << std::endl;
 	}
 }

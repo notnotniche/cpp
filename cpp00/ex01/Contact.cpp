@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 15:55:20 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/10/31 17:45:48 by nklingsh         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:06:51 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,74 +15,153 @@
 
 Contact::Contact()
 {
-	std::cout << "Creation du contact" << std::endl;
+	
 }
 
 Contact::~Contact()
 {
-	std::cout << "Destruction du contact" << std::endl;	
+	
+}
+void Contact::PrintForSearch(std::string Value)
+{
+	if (Value.size() <= 10 )
+		{
+			std::cout << Value;
+
+				for (size_t i = Value.size(); i < 10; i++)
+				{
+					std::cout << " ";
+				}
+		}
+	else
+	{
+		for (int i = 0; i < 9; i++)
+			std::cout << Value[i];
+		std::cout << ".";
+	}	
 }
 
 void Contact::Printvalue()
 {
-	std::cout << this->firstname << std::endl;
-	std::cout << this->darkestsecret << std::endl;
-	std::cout << this->lastname << std::endl;
-	std::cout << this->phonenumber << std::endl;
-	std::cout << this->surname << std::endl;	
+	std::cout << this->index << "         " << " | ";
+	PrintForSearch(firstname);
+	std::cout << " | ";
+	PrintForSearch(lastname);
+	std::cout << " | ";
+	PrintForSearch(surname);	
 }
-void Contact::SetContactFirstname()
+int Contact::SetContactFirstname()
 {
-	std::cout << "Firstname:";
-	std::getline(std::cin, firstname);
+	while(1)
+	{
+		std::cout << "Firstname:";
+		if (std::getline(std::cin, firstname).fail() == true)
+			return 1;
+		if (firstname.size() != 0)
+			return 0;
+		std::cout << std::endl;
+	}
 }
 
-void Contact::SetcontactLastname()
+int Contact::SetcontactLastname()
 {
-	std::cout << "Lastname:";
-	std::getline(std::cin, lastname);
+	while (1)
+	{
+		std::cout << "Lastname:";
+		if (std::getline(std::cin, lastname).fail() == true)
+			return 1;
+		if (lastname.size() != 0)
+			return 0;
+		std::cout << std::endl;
+	}
+
 }
 
-void Contact::SetContactSurname()
+int Contact::SetContactSurname()
 {
-	std::cout << "surname:";
-	std::getline(std::cin, surname);
+	while(1)
+	{
+		std::cout << "surname:";
+		if (std::getline(std::cin, surname).fail() == true)
+			return 1;
+		if (surname.size() != 0)
+			return 0;
+		std::cout << std::endl;
+	}
 }
 
-void Contact::SetDarkestSecret()
+int Contact::SetDarkestSecret()
 {
-	std::cout << "Secret:";
-	std::getline(std::cin, darkestsecret);
+	while (1)
+	{
+		std::cout << "Secret:";
+		if (std::getline(std::cin, darkestsecret).fail() == true)
+			return 1;
+		if (darkestsecret.size() != 0)
+			return 0;
+		std::cout << std::endl;
+	}
 }
 
-void Contact::SetPhonenumber()
+int Contact::SetPhonenumber()
 {
 	int x;
 	int i;
 
 	x = 0;
-	while (x != 1)
+	while (1)
 	{
-	std::cout << "Phne number:";
-	std::getline(std::cin, phonenumber);
-	for (i = 0;phonenumber[i]; i++)
-	{
-		if (phonenumber[i] < '0' || phonenumber[i] > '9')
+		std::cout << "Phone number:";
+		if (std::getline(std::cin, phonenumber).fail() == true)
+			return 1;
+		for (i = 0;phonenumber[i]; i++)
 		{
-			std::cout << "Not valid Phonenumber please retry\n";
-			break;
+			if (phonenumber[i] < '0' || phonenumber[i] > '9')
+			{
+				std::cout << "Not valid Phonenumber please retry\n";
+				break;
+			}
 		}
-	}
-	if (phonenumber[i - 1] >= '0' && phonenumber[i - 1] <= '9')
-		x = 1;
-	}
+		if (phonenumber[i - 1] >= '0' && phonenumber[i - 1] <= '9')
+			return (1);
+		}
 }
 
 void Contact::SetAllContact()
 {
-	SetContactFirstname();
-	SetcontactLastname();
-	SetContactSurname();
-	SetDarkestSecret();
-	SetPhonenumber();
+	if (SetContactFirstname() == 0)
+	{
+		if (SetcontactLastname() == 0)
+		{
+			if (SetContactSurname() == 0)
+			{
+				if (SetDarkestSecret() == 0)
+				{
+					if (SetPhonenumber() == 0)
+					{
+						std::cout << "CONTACT CREATED" << std::endl;
+					}
+				}
+			}
+		}
+	}
+}
+void Contact::PrintAllValue()
+{
+	std::cout << firstname << std::endl << lastname << std::endl << surname << std::endl << darkestsecret << std::endl << phonenumber << std::endl;
+}
+
+std::string Contact::GetFirstname()
+{
+	return firstname;
+}
+
+std::string Contact::Getlastname()
+{
+	return lastname;
+}
+
+std::string Contact::Getsurname()
+{
+	return surname;
 }

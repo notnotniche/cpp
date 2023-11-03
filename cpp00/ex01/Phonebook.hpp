@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 13:54:43 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/10/31 18:17:46 by nklingsh         ###   ########.fr       */
+/*   Updated: 2023/11/03 17:37:36 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 
 # include <iostream>
 # include <sstream>
+# include <string>
 # include "Contact.hpp"
 
 class Phonebook
 {
 	public : 
-		Phonebook(int size)
-		{
-			contacts = new Contact[size];
-		};
-		~Phonebook()
-		{
-			delete[] contacts;
-		};
+		Phonebook();
+		~Phonebook();
 		void AddContact();
 		void Init();
+		void Search();
 	private :
-		Contact *contacts;
+		Contact contacts[8];
 		int		currentsize;
 		
 	
