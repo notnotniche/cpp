@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:04:20 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/11/22 19:46:29 by nklingsh         ###   ########.fr       */
+/*   Updated: 2023/12/07 15:13:23 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,19 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	std::string filename;
-	std::string outfilename;
-	std::ifstream infile;
-	std::ofstream newfile;
-	std::string  line;
-
-	if (argc != 4)
-		return (std::cout << "Invalid number of arguments " << std::endl , 1);
-	
-	filename = argv[1];
-	outfilename = filename + ".replace";
-	infile.open(filename.c_str());
-	if (infile.is_open() == false)
-		return (std::cout << "Open infile failed" << std::endl , 1);
-	newfile.open(outfilename.c_str());
-	if (newfile.is_open() == false)
-		return (std::cout << "Open / Creation of new file failed" << std::endl , 1);
-	std::getline(infile, line, '\0');
-	std::string s1 = argv[2];
-	std::string s2 = argv[3];
-	for (size_t i = 0; i < line.length(); i++)
-	{
-		if (i == line.find(s1))
-		{
-			line.erase(i, s1.length());
-			line.insert(i, s2);
-			i = i + s2.length();
-		}
-	}
-	newfile << line;
-	infile.close();
-	newfile.close();
+	Harl Hal;
+	std::cout << "report to HAL , LEVEL OF CONDUCT : DEBUG" << std::endl;
+	Hal.complain("DEBUG");
+	std::cout << "report to HAL , LEVEL OF CONDUCT : INFO" << std::endl;
+	Hal.complain("INFO");
+	std::cout << "report to HAL , LEVEL OF CONDUCT : WARNING" << std::endl;
+	Hal.complain("WARNING");
+	std::cout << "report to HAL , LEVEL OF CONDUCT : ERROR" << std::endl;
+	Hal.complain("ERROR");
+	Hal.complain("lol");
 	return (0);
 }

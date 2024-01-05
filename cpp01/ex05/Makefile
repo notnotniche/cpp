@@ -5,7 +5,7 @@ SRC_DIR		=	$(shell find . -type d)
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
-SRCS		 =	main.cpp
+SRCS		 =	main.cpp Harl.cpp
 				
 
 OBJS		=	$(SRCS:%.cpp=${OBJ_DIR}/%.o)
