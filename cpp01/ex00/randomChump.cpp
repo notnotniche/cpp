@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:40:10 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/11/08 16:19:40 by nklingsh         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:51:51 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void RandomChump(std::string name)
 {
-	Zombie* RandomChump = new Zombie(name);
-	RandomChump->Announce();
-	delete RandomChump;
+	Zombie Dofus(name);
+	Dofus.Announce();
 }

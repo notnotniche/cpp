@@ -5,7 +5,7 @@ SRC_DIR		=	$(shell find . -type d)
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
-SRCS		 =	main.cpp 
+SRCS		 =	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 				
 
 OBJS		=	$(SRCS:%.cpp=${OBJ_DIR}/%.o)

@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:04:20 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/11/08 16:53:14 by nklingsh         ###   ########.fr       */
+/*   Updated: 2024/01/05 15:33:49 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int main()
 {
-	Zombie *horde = zombiehorde(123, "dofus");
-	for (int i = 0; i < 123; i++)
+	Zombie *horde = zombiehorde(10, "dofus");
+	for (int i = 0; i < 10; i++)
 		horde[i].Announce();
+	delete[] horde;
 }

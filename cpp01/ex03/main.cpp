@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 15:04:20 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/11/22 19:46:29 by nklingsh         ###   ########.fr       */
+/*   Updated: 2024/01/14 18:06:48 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@ int main()
 	club.setType("some other type of club");
 	bob.Attack();
 
-	HumanB bob1("Bob");
+	HumanB bob1("Bob1");
+	// bob1.SetWeapon(club);
+	bob1.Attack();
 	bob1.SetWeapon(club);
 	bob1.Attack();
 	club.setType("gulp");
 	bob1.Attack();
+	bob.Attack();
+
 }

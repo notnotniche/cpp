@@ -6,7 +6,7 @@
 /*   By: nklingsh <nklingsh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:12:25 by nklingsh          #+#    #+#             */
-/*   Updated: 2023/11/08 16:54:45 by nklingsh         ###   ########.fr       */
+/*   Updated: 2024/01/14 17:57:51 by nklingsh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 Zombie::Zombie(){}
 
 Zombie::~Zombie(){
-	std::cout << this->_name << ": No more food i will let myself die" << std::endl;
+	std::cout<< this->_name << " has no more food i will let myself die" << std::endl;
 }
 
 
