@@ -37,9 +37,10 @@ int main(int argc, char **argv)
 	std::getline(infile, line, '\0');
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
+	std::cout << line.length() << std::endl ;
 	for (size_t i = 0; i < line.length(); i++)
 	{
-		if (i == line.find(s1))
+		if (i == line.find(s1 , i))
 		{
 			line.erase(i, s1.length());
 			line.insert(i, s2);
