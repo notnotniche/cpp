@@ -1,8 +1,7 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed() : _fixedPoint(0)
 {
-    _fixedPoint = 0;
     std::cout << "Default constructor called" << std::endl;
 }
 
@@ -40,7 +39,32 @@ Fixed &Fixed::operator=(const Fixed &rhs)
 
 bool Fixed::operator>(const Fixed &rhs)
 {
-    
+    return (this->_fixedPoint > rhs._fixedPoint);
+}
+
+bool Fixed::operator<(const Fixed &rhs)
+{
+    return (this->_fixedPoint < rhs._fixedPoint);
+}
+
+bool Fixed::operator>=(const Fixed &rhs)
+{
+    return (this->_fixedPoint >= rhs._fixedPoint);
+}
+
+bool Fixed::operator<=(const Fixed &rhs)
+{
+    return (this->_fixedPoint <= rhs._fixedPoint);
+}
+
+bool Fixed::operator==(const Fixed &rhs)
+{
+    return (this->_fixedPoint == rhs._fixedPoint);
+}
+
+bool Fixed::operator!=(const Fixed &rhs)
+{
+    return (this->_fixedPoint != rhs._fixedPoint);
 }
 
 Fixed Fixed::operator+(const Fixed &rhs)
@@ -57,6 +81,32 @@ Fixed Fixed::operator-(const Fixed &rhs)
 
     ret.setRawBits(this->_fixedPoint - rhs._fixedPoint);
     return ret;
+}
+
+Fixed &Fixed::operator++()
+{
+    this->_fixedPoint++;
+    return (*this);
+}
+
+Fixed &Fixed::operator--()
+{
+    this->_fixedPoint--;
+    return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp = *this;
+	++*this;
+	return tmp;
+}
+
+Fixed Fixed::operator--(int)
+{
+    Fixed tmp = *this;
+    this->_fixedPoint--;
+    return (tmp);
 }
 
 Fixed Fixed::operator/(const Fixed &rhs)
