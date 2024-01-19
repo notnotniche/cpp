@@ -1,65 +1,65 @@
 #include "Fixed.hpp"
 
-const int  Fixed::_bits = 8;
-
-Fixed::Fixed(){
-	_entier = 0;
-	std::cout << "Default Constructor called" << std::endl;
-}
-
-Fixed::Fixed(const int x)
+Fixed::Fixed()
 {
-	_entier = (x << _bits);
-	std::cout << "Constructeur const int called" << std::endl;
+    _fixedPoint = 0;
+    std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const float f)
+Fixed::Fixed(const int Param)
 {
-	_entier = (roundf(f * (1 << _bits)));
-	std::cout << "Constructeur const float called" << std::endl;
+    std::cout << "Int Constructor Called" << std::endl;
+    this->_fixedPoint = (Param << _FractionalBits);
 }
 
-Fixed::Fixed(const Fixed &copy)
+Fixed::Fixed(const float Param)
 {
-	*this = copy;
-	std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Float Constructor Called" << std::endl;
+    this->_fixedPoint = int(roundf(Param * (1 << _FractionalBits)));
 }
+
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor Called" << std::endl;
+    std::cout << "Destructor Called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed &other)
+{
+    _fixedPoint = other._fixedPoint;
+    std::cout << "Copy constructor was called" << std::endl;
+}
+
+Fixed &Fixed::operator=(const Fixed &rhs)
+{
+    _fixedPoint = rhs._fixedPoint;
+    std::cout << "Copy assignement operator Called" << std::endl;
+    return *this;
 }
 
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits called" << std::endl;
-	return (_entier);
+    std::cout << "GetRawBits function called" << std::endl;
+    return this->_fixedPoint;
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits called" << std::endl;
-	_entier = raw;
+    this->_fixedPoint = raw;
 }
 
-float	Fixed::toFloat(void) const
+float Fixed::toFloat(void) const
 {
-	return ((float)this->_entier / (1 << _bits));
+    return float(this->_fixedPoint) / (1 << _FractionalBits);
 }
 
-int		Fixed::toInt(void) const
+int Fixed::toInt(void) const
 {
-	return ((this->_entier >> this->_bits));
+    return this->_fixedPoint >> _FractionalBits;
 }
 
-Fixed &Fixed::operator = (const Fixed &copy)
+std::ostream& operator<<(std::ostream& o, const Fixed& fixed)
 {
-	_entier = copy.getRawBits();
-	return (*this);
-}
-
-std::ostream& operator<<(std::ostream& out, const Fixed& Fixe)
-{
-	out << Fixe.toFloat();
-	return (out);
+	o << fixed.toFloat();
+	return o;
 }
