@@ -2,12 +2,13 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed b(2);
+	Fixed b(1);
 	Fixed const c( 42.42f );
 	Fixed const d( b );
 
-	a = Fixed(1);
-	a = b++;
+	a = b;
+	a++;
+
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
