@@ -21,4 +21,6 @@ class Point
         Point &operator=(const Point &rhs);
 };
 bool bsp( Point const a, Point const b, Point const c, Point const point);
+bool CheckIfTriangle(Point const a, Point const b, Point const c);
+
 #endif

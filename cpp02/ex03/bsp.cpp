@@ -5,6 +5,15 @@ float sign (Point p1, Point p2, Point p3)
     return (p1.getX().toFloat() - p3.getX().toFloat()) * (p2.getY().toFloat() - p3.getY().toFloat()) - (p2.getX().toFloat() - p3.getX().toFloat()) * (p1.getY().toFloat() - p3.getY().toFloat());
 }
 
+bool CheckIfTriangle(Point const a, Point const b, Point const c)
+{
+	float check = a.getX().toFloat() * (b.getY().toFloat() - c.getY().toFloat()) + b.getX().toFloat() * (c.getY().toFloat() - a.getY().toFloat()) + c.getX().toFloat() * (a.getY().toFloat() - b.getY().toFloat());
+	if (check == 0)
+		return false;
+	else
+		return true;
+}
+
 bool bsp(Point pt, Point v1, Point v2, Point v3)
 {
     float d1, d2, d3;
