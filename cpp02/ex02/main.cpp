@@ -2,22 +2,18 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed b(1);
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-
-	a = b;
-	a++;
-
-
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-	return 0;
+	Fixed a1(18);
+	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed const c( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max( b, c ) << std::endl;
+	std::cout << Fixed::max( a1, a ) << std::endl;
+	std::cout << Fixed::min( b, c ) << std::endl;
+	std::cout << Fixed::min( a1, a ) << std::endl;
+return 0;
 }

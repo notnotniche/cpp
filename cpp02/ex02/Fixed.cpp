@@ -37,12 +37,12 @@ Fixed &Fixed::operator=(const Fixed &rhs)
     return *this;
 }
 
-bool Fixed::operator>(const Fixed &rhs)
+bool Fixed::operator>(const Fixed &rhs) const
 {
     return (this->_fixedPoint > rhs._fixedPoint);
 }
 
-bool Fixed::operator<(const Fixed &rhs)
+bool Fixed::operator<(const Fixed &rhs) const
 {
     return (this->_fixedPoint < rhs._fixedPoint);
 }
@@ -149,6 +149,26 @@ float Fixed::toFloat(void) const
 int Fixed::toInt(void) const
 {
     return this->_fixedPoint >> _FractionalBits;
+}
+
+Fixed& Fixed::min(Fixed& a, Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+const Fixed& Fixed::min(const Fixed& a, const Fixed& b)
+{
+    return (a < b) ? a : b;
+}
+
+Fixed& Fixed::max(Fixed& a, Fixed& b)
+{
+    return (a > b) ? a : b;
+}
+
+const Fixed& Fixed::max(const Fixed& a, const Fixed& b)
+{
+    return (a > b) ? a : b;
 }
 
 std::ostream& operator<<(std::ostream& o, const Fixed& fixed)

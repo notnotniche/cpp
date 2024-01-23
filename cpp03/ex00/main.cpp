@@ -1,11 +1,12 @@
 #include "ClapTrap.hpp"
 
+int main(void)
+{
+    ClapTrap Dofus("Dofus");
+    ClapTrap Wakfu("Wakfu");
+    Dofus.Attack("Wakfu");
+    Wakfu.takeDamage(11);
+    Wakfu.beRepaired(2);
 
-int	main(){
-	ClapTrap	Mdofus("Mdofus");
-	Mdofus.Attack("ce con");
-	Mdofus.takeDamage(5);
-	Mdofus.beRepaired(2);
-    Mdofus.takeDamage(5);
-    Mdofus.takeDamage(5);
+    
 }

@@ -7,7 +7,7 @@ ClapTrap::ClapTrap(void) : _Name("Default"), _points(10) , _energy(10) , _attack
 
 ClapTrap::~ClapTrap(void)
 {
-    std::cout << "ClapTrap " << this->_Name << "Was destroyed" << std::endl; 
+    std::cout << "ClapTrap " << this->_Name << " Was destroyed" << std::endl; 
 }
 
 ClapTrap::ClapTrap(std::string Name) : _Name(Name), _points(10) , _energy(10) , _attackDamage(0)
@@ -15,6 +15,10 @@ ClapTrap::ClapTrap(std::string Name) : _Name(Name), _points(10) , _energy(10) , 
     std::cout << "Constructor string Called" << std::endl;
 }
 
+ClapTrap::ClapTrap(std::string Name, int points, int energy , int attackdamage) : _Name(Name), _points(points) , _energy(energy) , _attackDamage(attackdamage)
+{
+    std::cout << "Big Fat ClapTrap constructor called" << std::endl;
+}
 ClapTrap::ClapTrap( ClapTrap &other )
 {
 	std::cout << "ClapTrap Copy constructor called" << std::endl;

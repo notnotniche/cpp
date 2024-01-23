@@ -15,7 +15,7 @@ Fixed::Fixed(const int Param)
 Fixed::Fixed(const float Param)
 {
     std::cout << "Float Constructor Called" << std::endl;
-    this->_fixedPoint = int(roundf(Param * (1 << _FractionalBits)));
+    this->_fixedPoint = roundf(Param * (1 << _FractionalBits));
 }
 
 
