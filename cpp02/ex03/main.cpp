@@ -3,10 +3,13 @@
 
 
 int main( void ) {
-	Point a(1,2);
-	Point b(2,3);
-	Point c(3,5);
-	Point d(2,4);
-	std::cout << std::endl<< std::endl<< std::endl<< std::endl<< std::endl<< std::endl << bsp(a,b,c,d) << std::endl;
+	Point a(0,0);
+	Point b(5,1.5);
+	Point c(1.3,2.5);
+	Point d(1,1);
+	if (bsp(d,a,b,c) == 1)
+		std::cout << "Its inside the triangle" << std::endl;
+	else
+		std::cout << "its not looser" << std::endl;
 return 0;
 }
