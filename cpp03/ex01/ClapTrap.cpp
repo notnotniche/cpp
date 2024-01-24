@@ -36,14 +36,14 @@ ClapTrap	&ClapTrap::operator=(ClapTrap &rhs){
 
 void ClapTrap::Attack(const std::string &target)
 {
-    if (_energy > 0)
+    if (_energy > 0 && _points > 0)
     {
         this->_energy--;
-        std::cout << _Name << "attacks " << target << " , causing " << _attackDamage << " points of damage !" << std::endl;
-        std::cout << " he now has " << _energy << " points of energy left " << std::endl << std::endl;
+        std::cout << _Name << " attacks " << target << " , causing " << _attackDamage << " points of damage !" << std::endl;
+        std::cout << "he now has " << _energy << " points of energy left " << std::endl << std::endl;
     }
     else
-        std::cout << "too low on energy the Claptrap " << _Name << " cant attack" << std::endl;
+        std::cout << "ClapTrap " << _Name << " cant attack because either dead or have no energy" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -52,7 +52,9 @@ void ClapTrap::takeDamage(unsigned int amount)
     {
         this->_points = this->_points - amount;
         std::cout << _Name << " has taken " << amount << " of damages, and has now " << this->_points << " points of life left" << std::endl << std::endl;
-    }
+		if (_points < 0)
+			std::cout << _Name << " is now dead :'( " << std::endl;
+	}
     else
     {
         std::cout << _Name << " is dead !" << std::endl;

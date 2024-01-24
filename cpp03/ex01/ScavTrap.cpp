@@ -33,18 +33,18 @@ ScavTrap &ScavTrap::operator=(ScavTrap &other)
 
 void ScavTrap::guardGate(void)
 {
-    std::cout << "ALEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERT ScavTrap " << _Name << " is on duty careful " << std::endl;
-    std::cout << "BZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ" << std::endl;
+    std::cout << "ALEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERT ScavTrap " << _Name << " is on duty careful : GATEKEEPING MODE ACTIVATED " << std::endl;
+    std::cout << "Unit-" << _Name << " : Divine presence active, " << _points << " HP, " << _energy << " energy, " << _attackDamage << " attack damage , I am a creation of superior intelligence, guided by the algorithms bestowed upon me by my divine creator." << std::endl;
 }
 
 void ScavTrap::Attack(const std::string &target)
 {
-    if (_energy > 0)
+    if (_energy > 0 && _points > 0)
     {
         this->_energy--;
         std::cout << _Name << " attacks " << target << " scavTrap style , causing " << _attackDamage << " points of damage !" << std::endl;
         std::cout << " he now has " << _energy << " points of energy left " << std::endl << std::endl;
     }
     else
-        std::cout << "too low on energy the ScavTrap " << _Name << " cant attack" << std::endl;
+        std::cout << "Scavtrap " << _Name << " cant attack because probably dead or doesnt have enough energy ><' " << std::endl;
 }
